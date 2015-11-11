@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="UIStackViewExample/UIStackViewExample.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPad2.9.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="UIStackViewExample/AppDelegate.cs">
+    <Files>
+      <File FileName="UIStackViewExample/ViewController.designer.cs" Line="21" Column="45" />
+      <File FileName="UIStackViewExample/ViewController.cs" Line="21" Column="4" />
+      <File FileName="UIStackViewExample/AppDelegate.cs" Line="24" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
