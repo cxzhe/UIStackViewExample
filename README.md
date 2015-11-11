@@ -12,43 +12,43 @@ UIStackView Example
     假如主视图有三个子视图,IOS 8上需要使用Auto Layout纯代码来布局,要创建五个以上
     NSLayoutConstraint来布局.
 ```csharp
-    private void InitConstraint()
-		{
-			NSLayoutConstraint constraint = NSLayoutConstraint.Create (view0, NSLayoutAttribute.Leading, NSLayoutRelation.Equal, view1, NSLayoutAttribute.Leading, 20, 0);
-			this.View.AddConstraint (constraint);
-			NSLayoutConstraint constraint1 = NSLayoutConstraint.Create (view1, NSLayoutAttribute.Leading, NSLayoutRelation.Equal, view2, NSLayoutAttribute.Leading, 20, 0);
-			this.View.AddConstraint (constraint1);
-			NSLayoutConstraint constraint2 = NSLayoutConstraint.Create (view2, NSLayoutAttribute.Leading, NSLayoutRelation.Equal, view3, NSLayoutAttribute.Leading, 20, 0);
-			this.View.AddConstraint (constraint2);
-			NSLayoutConstraint constraint3 = NSLayoutConstraint.Create (view3, NSLayoutAttribute.Leading, NSLayoutRelation.Equal, this.View, NSLayoutAttribute.Leading, 20, 0);
-			this.View.AddConstraint (constraint3);
-		}
+private void InitConstraint()
+{
+	NSLayoutConstraint constraint = NSLayoutConstraint.Create (view0, NSLayoutAttribute.Leading, NSLayoutRelation.Equal, view1, NSLayoutAttribute.Leading, 20, 0);
+	this.View.AddConstraint (constraint);
+	NSLayoutConstraint constraint1 = NSLayoutConstraint.Create (view1, NSLayoutAttribute.Leading, NSLayoutRelation.Equal, view2, NSLayoutAttribute.Leading, 20, 0);
+	this.View.AddConstraint (constraint1);
+	NSLayoutConstraint constraint2 = NSLayoutConstraint.Create (view2, NSLayoutAttribute.Leading, NSLayoutRelation.Equal, view3, NSLayoutAttribute.Leading, 20, 0);
+	this.View.AddConstraint (constraint2);
+	NSLayoutConstraint constraint3 = NSLayoutConstraint.Create (view3, NSLayoutAttribute.Leading, NSLayoutRelation.Equal, this.View, NSLayoutAttribute.Leading, 20, 0);
+	this.View.AddConstraint (constraint3);
+}
 ```
 
     IOS 7之前的就需要在中ViewDidLayoutSubviews就得写大量magic number,来控制布局.
 ```csharp
-		public override void ViewDidLayoutSubviews ()
-		{
-			base.ViewDidLayoutSubviews ();
-			nint spacing = 20;
-			nint width = 50;
-			nint height = 30;
-			this.view0.Frame = new CGRect (spacing, spacing, width , height);
-			this.view1.Frame = new CGRect (view0.Frame.Right + height, spacing, width , height);
-			this.view2.Frame = new CGRect (view1.Frame.Right + height, spacing, width , height);
-			this.view3.Frame = new CGRect (view2.Frame.Right + height, spacing, width , height);
-		}
+public override void ViewDidLayoutSubviews ()
+{
+	base.ViewDidLayoutSubviews ();
+	nint spacing = 20;
+	nint width = 50;
+	nint height = 30;
+	this.view0.Frame = new CGRect (spacing, spacing, width , height);
+	this.view1.Frame = new CGRect (view0.Frame.Right + height, spacing, width , height);
+	this.view2.Frame = new CGRect (view1.Frame.Right + height, spacing, width , height);
+	this.view3.Frame = new CGRect (view2.Frame.Right + height, spacing, width , height);
+}
 ```
 
     而使用UIStackView只需要简单设置几个属性就可以完成.
 ```csharp
-		private void InitStackView()
-		{
-			StackView.Axis = UILayoutConstraintAxis.Horizontal;
-			StackView.Spacing = 20;
-			StackView.Alignment = UIStackViewAlignment.Fill;
-			StackView.Distribution = UIStackViewDistribution.EqualSpacing;
-		}
+private void InitStackView()
+{
+	StackView.Axis = UILayoutConstraintAxis.Horizontal;
+	StackView.Spacing = 20;
+	StackView.Alignment = UIStackViewAlignment.Fill;
+	StackView.Distribution = UIStackViewDistribution.EqualSpacing;
+}
 ```
 
 ## 详细 
